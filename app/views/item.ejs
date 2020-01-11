@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<% include style.ejs %>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Restaurant</title>
+</head>
+
+<body>
+	<% include header.ejs %>
+
+	<% include user-navigation.ejs %>
+
+	<div class="container">
+		<div class="row">
+			<div class="row col-sm-2">
+				<% include site-navigation.ejs %>
+			</div>
+			<div class="row col-sm-9 offset-sm-1">
+
+				<main>
+						<ul class="breadcrumb"><li><a href="/">Home</a> /</li>
+							<li><a href="/category">Category</a> /</li>
+							<li><a><%= input.itemInfo.itemName %></a></li>
+						</ul>
+						<div>
+								<div class="container2">
+									<figure  id="imageContainer">
+										<img alt= "<%= input.itemInfo.itemName %>" id="nachoImage" src= "<%= input.itemInfo.imageURL %>" class="image" width="354" height="220">
+										<div class="middle">
+											<button class="dropdownButton" onclick="location.href = '/addItem/<%= input.itemInfo.itemCode %>'">Add Recipe</button>
+										</div>
+									</figure>
+								</div>
+
+
+
+							<div id="itemDescription">
+								<h1> <%= input.itemInfo.description %> </h1><br>
+								<h2><%= input.itemInfo.catalogCategory %></h2>
+								<h2>Rating</h2>
+								<% for(var j=0; j< input.itemInfo.rating;j++){ %>
+								<span class="fa fa-star checked"></span>
+							<% } %>
+							<% for(var j=input.itemInfo.rating; j< 5;j++){ %>
+								<span class="fa fa-star"></span>
+								<% } %>
+							</div>
+						</div>
+						<div id="itemDetailedDescription">
+							<h1>
+								This is a text about us
+							</h1>
+							<p>
+								Some Useful information about the restaurant
+							</p>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="row col-sm-5">
+									<button type="button" class="dropdownButton" onclick="location.href = '/category'" id="returnToCartButton">Back To Category</button>
+								</div>
+							</div>
+
+
+							<!-- <button type="button" class="dropdownButton"  onclick="location.href = '/feedback/<%= input.itemInfo.itemCode %>'">Rate This</button> -->
+						</div>
+				</main>
+			</div>
+		</div>
+	</div>
+<% include footer.ejs %>
+
+</body>
+</html>

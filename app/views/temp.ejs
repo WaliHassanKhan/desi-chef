@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Restaurant</title>
+</head>
+
+<body>
+<header class="banner">
+	<figure id="logo"><img id="logoImage" src="~/assets/images/chef.jpg" alt="Logo" width="150" height="150"></figure>
+	<h1 id="brand_name">South Asian Fusion</h1>
+	<h3 id="login_status">Not Logged in</h3>
+</header>
+<nav>
+	<a href="#" id="signInNav">Sign In </a>|<a href="myItems.html" id = "myRecipeNav"> My Recipe </a>|<a id="myCartNav"> My Cart </a>
+</nav>
+
+<aside>
+		<a id="homeAside" href="index.html">Home</a><br>
+		<a id="categoryAside" href="category.html">Category</a><br>
+		<a id="storeAside" >Store</a><br>
+		<a id="aboutAside" href="#">About</a><br>
+		<a id="contactUs" href="#">Contact Us</a><br>
+</aside>
+<main>
+	<ul class="breadcrumb"><li><a href="index.html">Home</a> /</li>
+		<li><a href="category.html">Category</a> /</li>
+		<li><a>Nachos</a></li>
+
+	</ul>
+	<div>
+		<figure  id="imageContainer">
+			<img alt="nachos" id="nachoImage" src="~/images/nachos.jpg" width="354" height="220">
+		</figure>
+		<div id="itemDescription">
+			<h1>Fusion Salsa Nachos</h1><br>
+			<h2>Appetizer</h2>
+			<h2>Star Rating</h2>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star"></span>
+		</div>
+
+	</div>
+	<div id="itemDetailedDescription">
+		<h1>
+			Description
+		</h1>
+		<p>
+			Based on authentic recipe with a desi touch
+		</p>
+	</div>
+	<button class="dropdownButton" onclick="location.href = 'myItems.html'">Add Recipe</button>
+</main>
+<footer>
+	<h4 id="footerText">Desi Chef LLC</h4>
+</footer>
+</body>
+</html>

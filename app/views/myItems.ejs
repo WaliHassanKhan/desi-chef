@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<% include style.ejs %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Restaurant</title>
+</head>
+
+<% include header.ejs %>
+
+<% include user-navigation.ejs %>
+
+<div class="container">
+	<div class="row">
+		<div class="row col-sm-2">
+			<% include site-navigation.ejs %>
+		</div>
+		<div class="row col-sm-9 offset-sm-1">
+<main>
+	<h2 id="myItemHeading">Menu Added</h2>
+	<table class="table table-dark">
+		<tr class="tableHeading">
+			<th>Items
+			</th>
+			<th>Category
+			</th>
+			<th>Rating
+			</th>
+			<th>Made It
+			</th>
+			<th>
+			</th>
+			<th>
+			</th>
+		</tr>
+		<% for (var i = 0;i<input.UserItem.length; i++){ %>
+		<tr class="nachosItem">
+			<td><%= input.UserItem[i].item.itemName %>
+			</td>
+			<td><%= input.UserItem[i].item.catalogCategory %>
+			</td>
+			<td>
+				<% for (var j = 0 ;j<input.UserItem[i].rating; j++){ %>
+			<span class="fa fa-star checked"></span>
+			<% }%>
+			<% for (var j = input.UserItem[i].rating;j<5; j++){ %>
+			<span class="fa fa-star"></span>
+			<% } %>
+		</td>
+			<td><%= input.UserItem[i].madeIt %>
+			</td>
+			<td>
+				<form action= "<%='../updateitem/'+ input.UserItem[i].itemId%>" method="get">
+					<input class="btn btn-sm btn-warning" type="submit" value= "Update">
+				</form>
+			</td>
+				<td>
+				<form action= "<%='../deleteitem/'+input.UserItem[i].itemId%>" method="get">
+    		<input class="btn btn-sm btn-warning" type="submit" value="Delete" >
+			</form>
+		</td>
+		</tr>
+		<% } %>
+	</table>
+	<div id="bottomInfo">Click <a href="/category">here</a> to add a new Recipe</div>
+</main>
+</div>
+</div>
+</div>
+<% include footer.ejs %>
+
+<script type="text/javascript" src="assets/js/category.js"></script>
+</body>
+
+</html>

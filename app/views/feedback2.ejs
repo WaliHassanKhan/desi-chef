@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/styles.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <title>Restaurant</title>
+</head>
+
+<body>
+  <% include header2.ejs %>
+
+	<% include user-navigation.ejs %>
+	<!-- <%- include('site-navigation',input) %> -->
+	<div class="container">
+		<div class="row">
+			<div class="row col-sm-2">
+				<% include site-navigation.ejs %>
+			</div>
+			<div class="row col-sm-10 ">
+				<main>
+					<ul class="breadcrumb"><li><a href="/">Home</a> /</li>
+						<li><a href="/myItems">My Recipe</a> /</li>
+						<li><a><%= input.item.itemName %></a></li>
+					</ul>
+						<div>
+							<figure  id="imageContainer">
+								<img alt= "<%= input.item.itemName %>" id="nachoImage" src= "../<%= input.item.imageURL %>" class="image" width="354" height="220">
+							</figure>
+							<div id="itemDescription">
+										<h2> <%= input.item.description %> </h2><br>
+										<h3><%= input.item.catalogCategory %></h3>
+							      <h3>Rating</h3>
+										<% for(var j=0; j< input.rating;j++){ %>
+										<span class="fa fa-star checked"></span>
+									<% } %>
+									<% for(var j = input.rating; j< 5;j++){ %>
+										<span class="fa fa-star"></span>
+										<% } %>
+							      <h3>Rate This Item</h3>
+							      
+							      <form method='post' id="ratingForm" action='/givefeedback2/itemCode/<%= input.item.itemCode %>'>
+							      	<select type="select" name="rating" >
+								        <option value = '1'>1</option>
+								        <option value = '2'>2</option>
+								        <option value = '3'>3</option>
+								        <option value = '4'>4</option>
+								        <option value = '5'>5</option>
+								  </select>
+								      <input class='btn btn-primary btn-sm' type="submit" value="Update">
+							  		</form>
+										<h3>Did you Make It?</h3>
+										<form method='post' id="ratingForm" action='/givefeedback3/itemCode/<%= input.item.itemCode %>'>
+							      		<select type="select" name="madeIt" >
+									        <option value = 'no'>No</option>
+									        <option value = 'yes'>Yes</option>
+								  		</select>
+								      <input class='btn btn-primary btn-sm' type="submit" value="Update">
+							  		</form>
+							      </select>
+							</div>
+						</div>
+						<div id="itemDetailedDescription">
+							<h1>
+								This is a text about us
+							</h1>
+							<p>
+								Some Useful information about the restaurant
+							</p>
+						</div>
+					<div class="">
+						<button type="button" class="dropdownButton" onclick="location.href = '/myItems'" id="returnToCartButton">Back To Your Items</button>
+					</div>
+				</main>
+			</div>
+		</div>
+	</div>
+<% include footer.ejs %>
+
+</body>
+</html>

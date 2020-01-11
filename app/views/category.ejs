@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<% include style.ejs %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Restaurant</title>
+</head>
+
+<body>
+<% include header.ejs %>
+
+<% include user-navigation.ejs %>
+<div class="container">
+	<div class="row">
+		<div class="row col-sm-2">
+			<% include site-navigation.ejs %>
+		</div>
+		<div class="row col-sm-9 offset-sm-1">
+
+<main>
+	
+	<button class="dropdownButton" id="appetizerButton"><%= input.category[0] %></button>
+    <button class="dropdownButton" id="menuButton"><%= input.category[1] %></button>
+	<div class="dropdownContent" id="menuContent">
+		<% for(var j=0; j< input.itemData.length;j++){ %>
+		<%	if(input.itemData[j].catalogCategory == input.category[1]){ %>
+			<a href= '/<%=input.itemData[j].itemCode %>'  > <%= input.itemData[j].itemName %></a><br>
+		 <% } %>
+	<% } %>
+    </div>
+    <div class="dropdownContent" id="appetizerContent">
+			<% for(var j=0; j< input.itemData.length;j++){ %>
+	 		<%	if(input.itemData[j].catalogCategory == input.category[0]){ %>
+				<a href= '/<%=input.itemData[j].itemCode %>'  > <%= input.itemData[j].itemName %></a><br>
+			 <% } %>
+		<% } %>
+    </div>
+</main>
+</div>
+</div>
+</div>
+<% include footer.ejs %>
+
+<script type="text/javascript" src="assets/js/category.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <% include style.ejs %>
+    <title>About</title>
+  </head>
+  <body>
+    <% include header.ejs %>
+
+    <% include user-navigation.ejs %>
+
+    <div class="container">
+    	<div class="row">
+    		<div class="row col-sm-2">
+    			<% include site-navigation.ejs %>
+    		</div>
+    		<div class="row col-sm-9 offset-sm-1">
+          <main>
+            <ul class="breadcrumb"><li><a href="/">Home</a> /</li>
+          		<li><a>Contact Us</a></li>
+          	</ul>
+            <div >
+              <h1>
+          			Contact Us!!
+          		</h1>
+          		<table class="table table-dark">
+                <tr >
+                  <td><h4 class="tableText">Phone:</h4></td>
+                  <td><h4 class="tableText">19871231234</h4></td>
+                </tr>
+                <tr>
+                  <td><h4 class="tableText">Email</h4></td>
+                  <td><h4 class="tableText">SomeEmail@gmail.com</h4></td>
+                </tr>
+                <tr>
+                  <td><h4 class="tableText">Address</h4></td>
+                  <td><h4 class="tableText">Uptown</h4></td>
+                </tr>
+              </table>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+    <% include footer.ejs %>
+  </body>
+</html>

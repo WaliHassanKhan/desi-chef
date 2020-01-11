@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<% include style.ejs %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Restaurant</title>
+</head>
+
+<body>
+<% include header.ejs %>
+
+<% include user-navigation.ejs %>
+
+<div class="container">
+	<div class="row">
+		<div class="row col-sm-2">
+			<% include site-navigation.ejs %>
+		</div>
+		<div class="row col-sm-9 offset-sm-1">
+				<main class="loginMain">
+	  <h2>Welcome to Desi Chef</h2>
+	  <h3>Please enter your email and password to sign in</h3>
+	  <form class="" action="/login" method="post">
+	    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="emailAddress" placeholder="Email Address" required>
+	    <input type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" name="password" placeholder="Password" required><br>
+	    <input type="submit"  value="Sign In">
+		<div class="g-recaptcha" data-sitekey="6LfFIaEUAAAAALzkmmsYGsCw6zsvnDLn4x2aU5Yb"></div>
+	  </form>
+		<h2 class="text-danger bg-dark" ><%= input.error %></h2>
+		<h3 class="text-warning ">New to the website?</h3>
+		<h4 class="text-warning ">Please enter your email and password to sign Up</h4>
+		<h6 class="text-warning">Password needs to have one lowercase, one uppercase and a number</h6>
+	  <form class="" action="/signUp" method="post">
+	  	<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="emailAddress"  placeholder="Email Address" required><br>
+	    <input type="text"  name="firstName" value="" placeholder="First Name" required>
+			<input type="text"  name="lastName" value="" placeholder="Last Name" required><br>
+			
+			<input type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" name="password" placeholder="Password" id="password" required>
+	    <input type="password" name="retype" value="" placeholder="Retype Password" oninput="check(this)" required><br>
+			<script language='javascript' type='text/javascript'>
+		    function check(input) {
+		        if (input.value != document.getElementById('password').value) {
+		            input.setCustomValidity('Password Must be Matching.');
+		        } else {
+		            // input is valid -- reset the error message
+		            input.setCustomValidity('');
+		        }
+		    }
+			</script>
+	    <input type="submit" value="Sign Up">
+			<div class="g-recaptcha" data-sitekey="6LfFIaEUAAAAALzkmmsYGsCw6zsvnDLn4x2aU5Yb"></div>
+	  </form>
+			</main>
+		</div>
+	</div>
+</div>
+
+<% include footer.ejs %>
+
+<script type="text/javascript" src="assets/js/category.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <% include style.ejs %>
+    <title>About</title>
+  </head>
+  <body>
+    <% include header.ejs %>
+
+    <% include user-navigation.ejs %>
+
+  <div class="container">
+    <div class="row">
+  		<div class="row col-sm-2">
+  			<% include site-navigation.ejs %>
+  		</div>
+    	<div class="row col-sm-9 offset-sm-1">
+        <main>
+      <ul class="breadcrumb"><li><a href="/">Home</a> /</li>
+    		<li><a>About</a></li>
+    	</ul>
+      <div >
+        <table class="table table-dark">
+          <tr >
+            <td><h2 class="tableText">About Us:</h2></td>
+          </tr>
+          <tr >
+            <td><h4 class="tableText"><p>This is a very awesome recipe website. And we built it for you.
+                		</p></h4>
+            </td>
+          </tr>
+          <tr >
+            <td><h4 class="tableText"><p>Yes You!
+                		</p></h4>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+        </main>
+      </div>
+    </div>
+  </div>
+    <% include footer.ejs %>
+  </body>
+</html>
